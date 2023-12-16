@@ -1,4 +1,4 @@
 <a href="https://github.com/rai-pramana">
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=rai-pramana" />
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=rai-pramana&layout=compact&langs_count=8&card_width=320" />
+  <img height="200" src="https://github-readme-stats-eight-theta.vercel.app/api?username=rai-pramana&show_icons=true&theme=great-gatsby&bg_color=00000000&include_all_commits=true&count_private=true"/>
+  <img height="200" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=8&theme=great-gatsby&bg_color=00000000"/>
 </a>
