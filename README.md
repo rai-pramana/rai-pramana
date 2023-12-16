@@ -4,7 +4,7 @@
   
 <a align="center" href="https://github.com/rai-pramana">
   <div align=center>
-    <img height=172 align="center" src="https://github-readme-stats-eight-theta.vercel.app/api?username=rai-pramana&show_icons=true&theme=great-gatsby&bg_color=00000000&include_all_commits=true&count_private=true&hide_title=true"/>
-    <img height=172 align="center" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=8&theme=great-gatsby&bg_color=00000000"/>
+    <img height=172em align="center" src="https://github-readme-stats-eight-theta.vercel.app/api?username=rai-pramana&show_icons=true&theme=great-gatsby&bg_color=00000000&include_all_commits=true&count_private=true&hide_title=true"/>
+    <img height=172em align="center" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=8&theme=great-gatsby&bg_color=00000000"/>
   </div>
 </a>
