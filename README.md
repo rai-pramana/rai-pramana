@@ -2,8 +2,9 @@
   ⛩️  RAI PRAMANA — ライ・プラマナ
   Theme: ink #1a1b27 · gold #F7C948 · red #E60012 · text #c9d1d9
   Auto widgets: 3D contributions + snake (GitHub Actions, daily)
-  Note: every block is wrapped in <p> — inside a <div>, blank lines do NOT create
-  paragraphs, so images would render edge-to-edge with ~5px gaps.
+  Note: every block is wrapped in <p> — inside a <div>, blank lines do NOT
+  create paragraphs and GitHub strips inline style=, so widgets would render
+  edge-to-edge with ~5px gaps.
 -->
 
 <div align="center">
@@ -50,18 +51,28 @@
 
 </div>
 
-## プロジェクト · Featured Projects
+## 主なプロジェクト · Featured Projects
+
+<div align="center">
+
+<p><a href="https://github.com/rai-pramana/Holic-Barbershop"><img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="437" alt="Holic-Barbershop" /></a></p>
+
+<p><a href="https://github.com/rai-pramana/NyankoGarage"><img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="437" alt="NyankoGarage" /></a></p>
+
+<p><a href="https://github.com/rai-pramana/VehicleAccident-Detection-YOLO"><img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=VehicleAccident-Detection-YOLO&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="437" alt="VehicleAccident-Detection-YOLO" /></a></p>
+
+</div>
 
 | ⛩️ Project | 概要 · Description | Stack |
-| :-- | :-- | :-- |
-| [**Holic-Barbershop**](https://github.com/rai-pramana/Holic-Barbershop) | Antrean barbershop online — QR check-in, status real-time | `Laravel` `Blade` `MySQL` |
-| [**NyankoGarage**](https://github.com/rai-pramana/NyankoGarage) | Manajemen bengkel — produk, stok, transaksi real-time | `Next.js` `NestJS` `TS` |
-| [**NyankoMatch-CRM**](https://github.com/rai-pramana/NyankoMatch-CRM) | Platform CRM pelanggan | `Next.js` `NestJS` `PostgreSQL` |
-| [**VehicleAccident-Detection-YOLO**](https://github.com/rai-pramana/VehicleAccident-Detection-YOLO) | Deteksi kecelakaan dari kamera + playground | `YOLO` `PyTorch` `Streamlit` |
-| [**DC-Membangun-Sistem-Machine-Learning**](https://github.com/rai-pramana/DC-Membangun-Sistem-Machine-Learning) | Pipeline MLOps end-to-end | `Python` `MLflow` `Actions` |
-| [**Data-Warehouse-Penyewaan-Kamera**](https://github.com/rai-pramana/Data-Warehouse-Penyewaan-Kamera) | Data warehouse & ETL penyewaan kamera | `MySQL` `SQL` |
-| [**BookID**](https://github.com/Kampus-Merdeka-Software-Engineering/FE-2-Medan-14) · [server](https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Medan-14) | Booking hotel — capstone Kampus Merdeka | `JavaScript` `REST` |
-| [**PCD-Image-Enhancement**](https://github.com/rai-pramana/PCD-Image-Enhancement) | Playground peningkatan kualitas citra · [demo](https://image-enhancement-pcd.netlify.app/) | `HTML` `JS` `Netlify` |
+| :-- | :-- | :-: |
+| [**Holic-Barbershop**](https://github.com/rai-pramana/Holic-Barbershop) | Antrean barbershop online: QR check-in, status real-time, push notification | <img src="https://cdn.simpleicons.org/laravel/FF2D20" height="20" alt="laravel" /> <img src="https://cdn.simpleicons.org/mysql/4479A1" height="20" alt="mysql" /> <img src="https://cdn.simpleicons.org/tailwindcss/38BDF8" height="20" alt="tailwindcss" /> |
+| [**NyankoGarage**](https://github.com/rai-pramana/NyankoGarage) | Manajemen bengkel: produk, stok, transaksi, real-time | <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" height="20" alt="nextdotjs" /> <img src="https://cdn.simpleicons.org/nestjs/E0234E" height="20" alt="nestjs" /> <img src="https://cdn.simpleicons.org/typescript/3178C6" height="20" alt="typescript" /> <img src="https://cdn.simpleicons.org/postgresql/4169E1" height="20" alt="postgresql" /> |
+| [**NyankoMatch-CRM**](https://github.com/rai-pramana/NyankoMatch-CRM) | Platform CRM pelanggan | <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" height="20" alt="nextdotjs" /> <img src="https://cdn.simpleicons.org/nestjs/E0234E" height="20" alt="nestjs" /> <img src="https://cdn.simpleicons.org/postgresql/4169E1" height="20" alt="postgresql" /> |
+| [**VehicleAccident-Detection-YOLO**](https://github.com/rai-pramana/VehicleAccident-Detection-YOLO) | Deteksi kecelakaan dari feed kamera + playground Streamlit | <img src="https://cdn.simpleicons.org/ultralytics/0B23A9" height="20" alt="ultralytics" /> <img src="https://cdn.simpleicons.org/pytorch/EE4C2C" height="20" alt="pytorch" /> <img src="https://cdn.simpleicons.org/streamlit/FF4B4B" height="20" alt="streamlit" /> |
+| [**DC-Membangun-Sistem-Machine-Learning**](https://github.com/rai-pramana/DC-Membangun-Sistem-Machine-Learning) | Pipeline MLOps end-to-end: tracking, CI training, monitoring | <img src="https://cdn.simpleicons.org/python/3776AB" height="20" alt="python" /> <img src="https://cdn.simpleicons.org/mlflow/0194E2" height="20" alt="mlflow" /> <img src="https://cdn.simpleicons.org/githubactions/2088FF" height="20" alt="githubactions" /> |
+| [**Data-Warehouse-Penyewaan-Kamera**](https://github.com/rai-pramana/Data-Warehouse-Penyewaan-Kamera) | Data warehouse & ETL penyewaan kamera (star schema) | <img src="https://cdn.simpleicons.org/mysql/4479A1" height="20" alt="mysql" /> |
+| [**BookID**](https://github.com/Kampus-Merdeka-Software-Engineering/FE-2-Medan-14) | Booking hotel, capstone Kampus Merdeka ([server](https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Medan-14)) | <img src="https://cdn.simpleicons.org/javascript/F7DF1E" height="20" alt="javascript" /> <img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" height="20" alt="nodedotjs" /> |
+| [**PCD-Image-Enhancement**](https://github.com/rai-pramana/PCD-Image-Enhancement) | Playground peningkatan kualitas citra, [live demo](https://image-enhancement-pcd.netlify.app/) | <img src="https://cdn.simpleicons.org/html5/E34F26" height="20" alt="html5" /> <img src="https://cdn.simpleicons.org/javascript/F7DF1E" height="20" alt="javascript" /> <img src="https://cdn.simpleicons.org/netlify/00C7B7" height="20" alt="netlify" /> |
 
 ## 統計 · GitHub Stats
 
