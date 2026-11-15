@@ -128,9 +128,9 @@
 </picture></p>
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&bg_color=ffffff&title_color=87683A&text_color=24292f&hide_border=true" />
-  <img src="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" width="437" alt="Top languages" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-light.svg?v=1" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-dark.svg?v=1" width="437" alt="Top Languages" />
 </picture></p>
 
 <p><picture>
