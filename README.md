@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:E60012,45:1a1b27,100:F7C948&height=220&section=header&text=Rai%20Pramana&fontSize=72&fontColor=F7C948&fontAlignY=32&fontAlign=50&desc=%E3%83%A9%E3%82%A4%E3%83%BB%E3%83%97%E3%83%A9%E3%83%9E%E3%83%8A%20%C2%B7%20Software%20%26%20Data%20Engineer&descAlignY=54&descSize=20&descColor=c9d1d9&animation=twinkling" width="100%" alt="ライ・プラマナ — Rai Pramana" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:E60012,45:1a1b27,100:F7C948&height=220&section=header&text=Rai%20Pramana&fontSize=72&fontColor=F7C948&fontAlignY=32&fontAlign=50&desc=%E3%83%A9%E3%82%A4%E3%83%BB%E3%83%97%E3%83%A9%E3%83%9E%E3%83%8A%20%C2%B7%20Software%20%26amp%3B%20Data%20Engineer&descAlignY=54&descSize=20&descColor=c9d1d9&animation=twinkling" width="100%" alt="ライ・プラマナ — Rai Pramana" />
 
 <br/>
 
