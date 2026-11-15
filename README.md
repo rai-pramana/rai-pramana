@@ -10,12 +10,12 @@
 
   dark : ink #1a1b27 · soft gold #D8BD8A (titles) · muted gold #B08D57 (icons)
          text #c9d1d9 · border #353A47 · deep ink #141520 (hero vignette)
-  light: white #ffffff · soft gold #9A7B45 · muted copper #9A7B45
+  light: white #ffffff · deep gold #87683A (titles + icons) · text #24292f
          text #24292f · border #DCDCDC
 
   Why muted: #F7C948 and #E60012 read as toy-bright at 546px and fought the
-  neo-Tokyo ink. Dropping them to #D8BD8A / #B08D57 keeps contrast (4.6:1 on
-  ink) while letting the seigaiha texture and crest carry the theme instead of
+  neo-Tokyo ink. Dropping them to #D8BD8A / #B08D57 keeps contrast (5.52:1 on
+  ink, 5.16:1 on white) while letting the seigaiha texture and crest carry the theme instead of
   the colour shouting over it.
 
   Auto : 3D contributions + snake, regenerated daily by GitHub Actions.
@@ -70,49 +70,22 @@
 
 ## 作品 · Selected Work
 
-<div align="center">
+<sub>Pinned repositories, with live stats from the GitHub API.</sub>
 
-<p><a href="https://github.com/rai-pramana/Biblio"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="Biblio" />
-</picture></a>&nbsp;<a href="https://github.com/rai-pramana/Holic-Barbershop"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="Holic-Barbershop" />
-</picture></a></p>
 
-<p><a href="https://github.com/rai-pramana/NyankoGarage"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="NyankoGarage" />
-</picture></a>&nbsp;<a href="https://github.com/rai-pramana/Vehicle-AccidentYoloApp"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="Vehicle-AccidentYoloApp" />
-</picture></a></p>
-
-<p><a href="https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Medan-14"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="BE-2-Medan-14" />
-</picture></a>&nbsp;<a href="https://github.com/Kampus-Merdeka-Software-Engineering/FE-2-Medan-14"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="FE-2-Medan-14" />
-</picture></a></p>
-
-</div>
-
-| Project | Summary | Stack |
-| :-- | :-- | :-: |
-| [**Biblio**](https://github.com/rai-pramana/Biblio) | Aplikasi Android review dan manajemen koleksi buku | <img src="https://cdn.simpleicons.org/android/B08D57" height="20" alt="android" /> <img src="https://cdn.simpleicons.org/openjdk/B08D57" height="20" alt="java" /> |
-| [**Holic-Barbershop**](https://github.com/rai-pramana/Holic-Barbershop) | Sistem antrean barbershop online: QR check-in, status real-time, push notification | <img src="https://cdn.simpleicons.org/laravel/B08D57" height="20" alt="laravel" /> <img src="https://cdn.simpleicons.org/mysql/B08D57" height="20" alt="mysql" /> <img src="https://cdn.simpleicons.org/tailwindcss/B08D57" height="20" alt="tailwindcss" /> |
-| [**NyankoGarage**](https://github.com/rai-pramana/NyankoGarage) | Garage management system: produk, stok, transaksi, real-time | <img src="https://cdn.simpleicons.org/nextdotjs/B08D57" height="20" alt="nextdotjs" /> <img src="https://cdn.simpleicons.org/nestjs/B08D57" height="20" alt="nestjs" /> <img src="https://cdn.simpleicons.org/postgresql/B08D57" height="20" alt="postgresql" /> |
-| [**Vehicle-AccidentYoloApp**](https://github.com/rai-pramana/Vehicle-AccidentYoloApp) | Deteksi kecelakaan dari feed kamera dengan YOLO + notebook eksperimen | <img src="https://cdn.simpleicons.org/ultralytics/B08D57" height="20" alt="ultralytics" /> <img src="https://cdn.simpleicons.org/python/B08D57" height="20" alt="python" /> <img src="https://cdn.simpleicons.org/jupyter/B08D57" height="20" alt="jupyter" /> |
-| [**BE-2-Medan-14**](https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Medan-14) | REST API booking hotel, capstone Kampus Merdeka | <img src="https://cdn.simpleicons.org/nodedotjs/B08D57" height="20" alt="nodedotjs" /> <img src="https://cdn.simpleicons.org/express/B08D57" height="20" alt="express" /> |
-| [**FE-2-Medan-14**](https://github.com/Kampus-Merdeka-Software-Engineering/FE-2-Medan-14) | Frontend booking hotel, capstone Kampus Merdeka | <img src="https://cdn.simpleicons.org/html5/B08D57" height="20" alt="html5" /> <img src="https://cdn.simpleicons.org/css/B08D57" height="20" alt="css" /> <img src="https://cdn.simpleicons.org/javascript/B08D57" height="20" alt="javascript" /> |
-
+<table>
+<thead>
+<tr><th align="left">Project</th><th align="left">Summary</th></tr>
+</thead>
+<tbody>
+<tr><td width="220"><a href="https://github.com/rai-pramana/Biblio"><b>Biblio</b></a><br><sub>Java</sub></td><td>Aplikasi Android review dan manajemen koleksi buku.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2025-10-04</sub></td></tr>
+<tr><td width="220"><a href="https://github.com/rai-pramana/Holic-Barbershop"><b>Holic&#8209;Barbershop</b></a><br><sub>Blade</sub></td><td>Sistem antrean barbershop online: QR check-in, status real-time, push notification.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2026-10-01</sub></td></tr>
+<tr><td width="220"><a href="https://github.com/rai-pramana/NyankoGarage"><b>NyankoGarage</b></a><br><sub>TypeScript</sub></td><td>Garage management system: produk, stok, transaksi, real-time.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2026-05-06</sub></td></tr>
+<tr><td width="220"><a href="https://github.com/rai-pramana/Vehicle-AccidentYoloApp"><b>Vehicle&#8209;AccidentYoloApp</b></a><br><sub>Notebook</sub></td><td>Deteksi kecelakaan kendaraan dari feed kamera dengan YOLO, Gymnasium, dan notebook eksperimen.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2026-02-08</sub></td></tr>
+<tr><td width="220"><a href="https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Medan-14"><b>BE&#8209;2&#8209;Medan&#8209;14</b></a><br><sub>Kampus-Merdeka-Software-Engineering</sub><br><sub>JavaScript</sub></td><td>Backend for Lele Store (single seller, F&B).<br><sub>&#9733; 1 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2023-12-10</sub></td></tr>
+<tr><td width="220"><a href="https://github.com/Kampus-Merdeka-Software-Engineering/FE-2-Medan-14"><b>FE&#8209;2&#8209;Medan&#8209;14</b></a><br><sub>Kampus-Merdeka-Software-Engineering</sub><br><sub>CSS</sub></td><td>Frontend for Lele Store (single seller, F&B).<br><sub>&#9733; 1 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2023-12-10</sub></td></tr>
+</tbody>
+</table>
 ## 記録 · Stats
 
 <div align="center">
