@@ -9,7 +9,10 @@
   · every block sits in its own <p>: inside a <div>, blank lines do NOT create
     paragraphs and GitHub strips style=, so widgets collapse to ~5px gaps
   · keep the banner desc as %26amp%3B — a raw & makes the SVG unparseable
+  · paired cards need align="top" (154px vs 195px natural height) or they
+    bottom-align and look broken
   · repo descriptions must stay ASCII: an em-dash shows up as a literal backslash-u2014
+  · never bulk-replace <img> tags — rewrite the file and assert src+alt on each
 -->
 
 <div align="center">
@@ -19,24 +22,14 @@
 <p><a href="https://github.com/rai-pramana"><img src="https://readme-typing-svg.demolab.com?font=Zen+Maru+Gothic&weight=600&size=24&duration=3000&pause=1200&color=F7C948&center=true&vCenter=true&width=700&height=48&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%80%81%E3%83%A9%E3%82%A4%E3%81%A8%E3%82%82%E3%81%86%E3%81%97%E3%81%BE%E3%81%99;Software%20Engineer%20%C2%B7%20Data%20Engineer" alt="Typing SVG" /></a></p>
 
 <p>
-<img src="https://komarev.com/ghpvc/?username=rai-pramana&label=%E9%96%B2%E8%A6%A7%E8%80%85+VIEWS&color=E60012&style=for-the-badge&labelColor=1a1b27" alt="Profile views" />
-&nbsp;&nbsp;
-<img src="https://img.shields.io/github/followers/rai-pramana?style=for-the-badge&logo=github&logoColor=F7C948&label=%E3%83%95%E3%82%A9%E3%83%AD%E3%83%AF%E3%83%BC&labelColor=1a1b27&color=E60012" alt="Followers" />
-&nbsp;&nbsp;
-<a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-%40rai--pramana-1a1b27?style=for-the-badge&logo=medium&logoColor=F7C948&labelColor=30363d" alt="Medium" /></a>
+<img src="https://komarev.com/ghpvc/?username=rai-pramana&label=%E9%96%B2%E8%A6%A7%E8%80%85&color=E60012&style=flat-square&labelColor=1a1b27" height="20" alt="Profile views" />
+&nbsp;
+<img src="https://img.shields.io/github/followers/rai-pramana?style=flat-square&logo=github&logoColor=F7C948&label=%E3%83%95%E3%82%A9%E3%83%AD%E3%83%AF%E3%83%BC&labelColor=1a1b27&color=E60012" height="20" alt="Followers" />
+&nbsp;
+<a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-rai--pramana-1a1b27?style=flat-square&logo=medium&logoColor=F7C948&labelColor=30363d" height="20" alt="Medium" /></a>
 </p>
 
 <p><img src="https://capsule-render.vercel.app/api?type=rect&color=0:E60012,50:F7C948,100:E60012&height=2" width="100%" height="2" alt="" /></p>
-
-</div>
-
-## 紹介 · About
-
-<div align="center">
-
-| 名前 · Name | 拠点 · Base | 専門 · Focus | 信条 · Motto |
-| :--: | :--: | :--: | :--: |
-| **I Kadek Rai Pramana**<br/>ライ | **Bali, Indonesia**<br/>WITA · UTC+8 | **Software · Data**<br/>engineering · ML | **七転び八起き**<br/>*fall seven, stand up eight* |
 
 </div>
 
@@ -108,13 +101,13 @@
 <div align="center">
 
 <p>
-<a href="https://github.com/rai-pramana"><img src="https://img.shields.io/badge/GitHub-rai--pramana-181717?style=for-the-badge&logo=github&logoColor=F7C948&labelColor=1a1b27" alt="GitHub" /></a>
-&nbsp;&nbsp;
-<a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-%40rai--pramana-000000?style=for-the-badge&logo=medium&logoColor=F7C948&labelColor=1a1b27" alt="Medium" /></a>
+<a href="https://github.com/rai-pramana"><img src="https://img.shields.io/badge/GitHub-rai--pramana-181717?style=flat-square&logo=github&logoColor=F7C948&labelColor=1a1b27" height="20" alt="GitHub" /></a>
+&nbsp;
+<a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-rai--pramana-1a1b27?style=flat-square&logo=medium&logoColor=F7C948&labelColor=30363d" height="20" alt="Medium" /></a>
 </p>
 
-<p>一期一会 · よろしくお願いします</p>
+<p><sub>一期一会 · よろしくお願いします</sub></p>
 
 </div>
 
-<p><img src="https://capsule-render.vercel.app/api?type=waving&color=0:E60012,45:1a1b27,100:F7C948&height=120&section=footer" width="100%" alt="" /></p>
+<p><img src="https://capsule-render.vercel.app/api?type=waving&color=0:E60012,45:1a1b27,100:F7C948&height=110&section=footer" width="100%" alt="" /></p>
