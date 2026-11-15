@@ -30,7 +30,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:E60012,45:1a1b27,100:F7C948&height=210&section=header&text=Rai%20Pramana&fontSize=64&fontColor=F7C948&fontAlignY=34&fontAlign=50&desc=%E3%83%A9%E3%82%A4%E3%83%BB%E3%83%97%E3%83%A9%E3%83%9E%E3%83%8A&descAlignY=56&descSize=20&descColor=c9d1d9" width="100%" alt="ライ・プラマナ" />
 </picture></p>
 
-<p><a href="https://github.com/rai-pramana"><img src="https://readme-typing-svg.demolab.com?font=Zen+Maru+Gothic&weight=600&size=24&duration=3000&pause=1200&color=F7C948&center=true&vCenter=true&width=700&height=48&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%80%81%E3%83%A9%E3%82%A4%E3%81%A8%E3%82%82%E3%81%86%E3%81%97%E3%81%BE%E3%81%99;Software%20Engineer%20%C2%B7%20Data%20Engineer" alt="Typing SVG" /></a></p>
+<p><a href="https://github.com/rai-pramana"><img src="https://readme-typing-svg.demolab.com?font=Zen+Maru+Gothic&weight=600&size=24&duration=2600&pause=2800&color=F7C948&center=true&vCenter=true&width=700&height=48&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%80%81%E3%83%A9%E3%82%A4%E3%81%A8%E3%82%82%E3%81%86%E3%81%97%E3%81%BE%E3%81%99;Software%20Engineer%20%C2%B7%20Data%20Engineer" alt="Typing SVG" /></a></p>
 
 <p>
 <img src="https://komarev.com/ghpvc/?username=rai-pramana&label=%E9%96%B2%E8%A6%A7%E8%80%85&color=E60012&style=flat-square&labelColor=1a1b27" height="20" alt="Profile views" />
@@ -43,7 +43,7 @@
 <p><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-light.svg" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" width="100%" height="52" alt="" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" width="100%" height="38" alt="" />
 </picture></p>
 
 </div>
@@ -160,7 +160,7 @@
 <p><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-light.svg" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" width="100%" height="52" alt="" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" width="100%" height="38" alt="" />
 </picture></p>
 
 <p>
