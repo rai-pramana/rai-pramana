@@ -44,11 +44,7 @@
 <a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-rai--pramana-1a1b27?style=flat-square&logo=medium&logoColor=F7C948&labelColor=30363d" height="20" alt="Medium" /></a>
 </p>
 
-<p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg?v=2" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-light.svg?v=2" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg?v=2" width="100%" height="38" alt="" />
-</picture></p>
+<hr />
 
 </div>
 
@@ -161,11 +157,7 @@
 
 <div align="center">
 
-<p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg?v=2" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-light.svg?v=2" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg?v=2" width="100%" height="38" alt="" />
-</picture></p>
+<hr />
 
 <p>
 <a href="https://github.com/rai-pramana"><img src="https://img.shields.io/badge/GitHub-rai--pramana-181717?style=flat-square&logo=github&logoColor=F7C948&labelColor=1a1b27" height="20" alt="GitHub" /></a>
@@ -180,7 +172,7 @@
 </div>
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/footer-dark.svg?v=3" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/footer-light.svg?v=3" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/footer-dark.svg?v=3" width="100%" alt="" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg?v=2" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-light.svg?v=2" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg?v=2" width="100%" alt="" />
 </picture></p>
