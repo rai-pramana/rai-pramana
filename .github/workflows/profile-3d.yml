@@ -19,6 +19,38 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
           SETTING_JSON: profile-3d-settings.json
+
+      # The action paints the top-language legend from GitHub's own language
+      # colours, hardcoded upstream — settings.json cannot reach them. Those are
+      # the only saturated fills left in the graph, so remap them here.
+      - name: Calm the language legend
+        run: |
+          python3 - <<'PY'
+          import re, pathlib
+
+          MAP = {
+              "#F7523F": "#B08D57",   # python -> muted gold
+              "#3572A5": "#9A7B45",   # blue   -> muted copper
+              "#3178C6": "#B08D57",   # ts     -> muted gold
+              "#DA5B0B": "#9A7B45",   # orange -> muted copper
+              "#444444": "#353A47",   # grey   -> border slate
+              "#C1121F": "#9A7B45",   # stray light red -> copper
+              "#E60012": "#B08D57",   # stray bright red -> gold
+          }
+
+          for f in ("profile-custom.svg", "profile-custom-light.svg"):
+              p = pathlib.Path(f)
+              if not p.exists():
+                  continue
+              s = p.read_text()
+              n = 0
+              for old, new in MAP.items():
+                  s, k = re.subn(re.escape(old), new, s, flags=re.I)
+                  n += k
+              p.write_text(s)
+              print(f"{f}: remapped {n} fill(s)")
+          PY
+
       - name: Commit & Push
         run: |
           git config user.name "github-actions[bot]"

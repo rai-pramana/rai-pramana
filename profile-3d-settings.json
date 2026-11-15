@@ -21,16 +21,16 @@
     "fileName": "profile-custom-light.svg",
     "backgroundColor": "#ffffff",
     "foregroundColor": "#24292f",
-    "strongColor": "#8A6A2F",
+    "strongColor": "#9A7B45",
     "weakColor": "#DCDCDC",
-    "radarColor": "#8A6428",
+    "radarColor": "#9A7B45",
     "growingAnimation": true,
     "contribColors": [
       "#eaeef2",
       "#e0d3bb",
       "#c9b48d",
       "#a8895c",
-      "#8a6a2f"
+      "#9A7B45"
     ]
   }
 ]
