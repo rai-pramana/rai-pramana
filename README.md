@@ -40,7 +40,11 @@
 <a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-rai--pramana-1a1b27?style=flat-square&logo=medium&logoColor=F7C948&labelColor=30363d" height="20" alt="Medium" /></a>
 </p>
 
-<p><img src="https://capsule-render.vercel.app/api?type=rect&color=0:E60012,50:F7C948,100:E60012&height=2" width="100%" height="2" alt="" /></p>
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-light.svg" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" width="100%" height="52" alt="" />
+</picture></p>
 
 </div>
 
@@ -112,6 +116,12 @@
 </picture></p>
 
 <p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=rai-pramana&theme=cobalt2&utcOffset=8&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=rai-pramana&theme=default&utcOffset=8&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=rai-pramana&theme=cobalt2&utcOffset=8&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012" width="437" alt="Productive time" />
+</picture></p>
+
+<p><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=1a1b27&color=F7C948&line=E60012&point=F7C948&area=true&area_color=F7C948&hide_border=true" />
   <source media="(prefers-color-scheme: light)" srcset="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=ffffff&color=B8860B&line=C1121F&point=C1121F&area=true&area_color=B8860B&hide_border=true" />
   <img src="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=1a1b27&color=F7C948&line=E60012&point=F7C948&area=true&area_color=F7C948&hide_border=true" width="780" alt="Activity graph" />
@@ -147,10 +157,18 @@
 
 <div align="center">
 
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-light.svg" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/seigaiha-dark.svg" width="100%" height="52" alt="" />
+</picture></p>
+
 <p>
 <a href="https://github.com/rai-pramana"><img src="https://img.shields.io/badge/GitHub-rai--pramana-181717?style=flat-square&logo=github&logoColor=F7C948&labelColor=1a1b27" height="20" alt="GitHub" /></a>
 &nbsp;
 <a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-rai--pramana-1a1b27?style=flat-square&logo=medium&logoColor=F7C948&labelColor=30363d" height="20" alt="Medium" /></a>
+&nbsp;
+<img src="https://img.shields.io/badge/%E3%83%A9%E3%82%A4-C1121F?style=flat-square&labelColor=E60012&logoColor=ffffff" height="20" alt="ライ" />
 </p>
 
 <p><sub>一期一会 · よろしくお願いします</sub></p>
