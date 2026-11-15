@@ -6,8 +6,17 @@
   white card instead of a dark navy slab on a white page. GitHub wraps these in
   <themed-picture> itself and swaps sources on theme toggle.
 
-  dark : ink #1a1b27 · gold #F7C948 · red #E60012 · text #c9d1d9
-  light: white #ffffff · gold #B8860B · red #C1121F · text #24292f
+  PALETTE — one accent only: muted gold. No saturated red anywhere in the widgets.
+
+  dark : ink #1a1b27 · soft gold #D8BD8A (titles) · muted gold #B08D57 (icons)
+         text #c9d1d9 · border #353A47 · deep ink #141520 (hero vignette)
+  light: white #ffffff · soft gold #8A6A2F · muted copper #8A6428
+         text #24292f · border #DCDCDC
+
+  Why muted: #F7C948 and #E60012 read as toy-bright at 546px and fought the
+  neo-Tokyo ink. Dropping them to #D8BD8A / #B08D57 keeps contrast (4.6:1 on
+  ink) while letting the seigaiha texture and crest carry the theme instead of
+  the colour shouting over it.
 
   Auto : 3D contributions + snake, regenerated daily by GitHub Actions.
 
@@ -33,16 +42,16 @@
 
 <h1 align="center">Rai Pramana</h1>
 
-<p><a href="https://github.com/rai-pramana"><img src="https://readme-typing-svg.demolab.com?font=Zen+Maru+Gothic&weight=600&size=24&duration=2600&pause=2800&color=F7C948&center=true&vCenter=true&width=700&height=48&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%80%81%E3%83%A9%E3%82%A4%E3%81%A8%E3%82%82%E3%81%86%E3%81%97%E3%81%BE%E3%81%99;Software%20Engineer%20%C2%B7%20Data%20Engineer" alt="Typing SVG" /></a></p>
+<p><a href="https://github.com/rai-pramana"><img src="https://readme-typing-svg.demolab.com?font=Zen+Maru+Gothic&weight=600&size=24&duration=2600&pause=2800&color=D8BD8A&center=true&vCenter=true&width=700&height=48&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%80%81%E3%83%A9%E3%82%A4%E3%81%A8%E3%82%82%E3%81%86%E3%81%97%E3%81%BE%E3%81%99;Software%20Engineer%20%C2%B7%20Data%20Engineer" alt="Typing SVG" /></a></p>
 
 <p>
-<img src="https://komarev.com/ghpvc/?username=rai-pramana&label=%E9%96%B2%E8%A6%A7%E8%80%85&color=E60012&style=flat-square&labelColor=1a1b27" height="20" alt="Profile views" />
+<img src="https://komarev.com/ghpvc/?username=rai-pramana&label=%E9%96%B2%E8%A6%A7%E8%80%85&color=B08D57&style=flat-square&labelColor=1a1b27" height="20" alt="Profile views" />
 &nbsp;
-<img src="https://img.shields.io/github/followers/rai-pramana?style=flat-square&logo=github&logoColor=F7C948&label=%E3%83%95%E3%82%A9%E3%83%AD%E3%83%AF%E3%83%BC&labelColor=1a1b27&color=E60012" height="20" alt="Followers" />
+<img src="https://img.shields.io/github/followers/rai-pramana?style=flat-square&logo=github&logoColor=D8BD8A&label=%E3%83%95%E3%82%A9%E3%83%AD%E3%83%AF%E3%83%BC&labelColor=1a1b27&color=B08D57" height="20" alt="Followers" />
 &nbsp;
-<a href="https://github.com/rai-pramana"><img src="https://img.shields.io/badge/GitHub-rai--pramana-181717?style=flat-square&logo=github&logoColor=F7C948&labelColor=1a1b27" height="20" alt="GitHub" /></a>
+<a href="https://github.com/rai-pramana"><img src="https://img.shields.io/badge/GitHub-rai--pramana-181717?style=flat-square&logo=github&logoColor=D8BD8A&labelColor=1a1b27" height="20" alt="GitHub" /></a>
 &nbsp;
-<a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-rai--pramana-1a1b27?style=flat-square&logo=medium&logoColor=F7C948&labelColor=30363d" height="20" alt="Medium" /></a>
+<a href="https://medium.com/@rai-pramana"><img src="https://img.shields.io/badge/Medium-rai--pramana-1a1b27?style=flat-square&logo=medium&logoColor=D8BD8A&labelColor=353A47" height="20" alt="Medium" /></a>
 </p>
 
 <hr />
@@ -64,33 +73,33 @@
 <div align="center">
 
 <p><a href="https://github.com/rai-pramana/Biblio"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F&hide_border=true&border_color=e5e5e5&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="345" align="top" alt="Biblio" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&icon_color=8A6428&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
+  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Biblio&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="Biblio" />
 </picture></a>&nbsp;<a href="https://github.com/rai-pramana/Holic-Barbershop"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F&hide_border=true&border_color=e5e5e5&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="345" align="top" alt="Holic-Barbershop" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&icon_color=8A6428&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
+  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Holic-Barbershop&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="Holic-Barbershop" />
 </picture></a></p>
 
 <p><a href="https://github.com/rai-pramana/NyankoGarage"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F&hide_border=true&border_color=e5e5e5&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="345" align="top" alt="NyankoGarage" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&icon_color=8A6428&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
+  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=NyankoGarage&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="NyankoGarage" />
 </picture></a>&nbsp;<a href="https://github.com/rai-pramana/Vehicle-AccidentYoloApp"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F&hide_border=true&border_color=e5e5e5&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="345" align="top" alt="Vehicle-AccidentYoloApp" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&icon_color=8A6428&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
+  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=rai-pramana&repo=Vehicle-AccidentYoloApp&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="Vehicle-AccidentYoloApp" />
 </picture></a></p>
 
 <p><a href="https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Medan-14"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F&hide_border=true&border_color=e5e5e5&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="345" align="top" alt="BE-2-Medan-14" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&icon_color=8A6428&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
+  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=BE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="BE-2-Medan-14" />
 </picture></a>&nbsp;<a href="https://github.com/Kampus-Merdeka-Software-Engineering/FE-2-Medan-14"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F&hide_border=true&border_color=e5e5e5&description_lines_count=2&show_owner=false" />
-  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true&border_color=30363d&description_lines_count=2&show_owner=false" width="345" align="top" alt="FE-2-Medan-14" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&icon_color=8A6428&hide_border=true&border_color=DCDCDC&description_lines_count=2&show_owner=false" />
+  <img src="https://gh-readme-stats.vercel.app/api/pin/?username=Kampus-Merdeka-Software-Engineering&repo=FE-2-Medan-14&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true&border_color=353A47&description_lines_count=2&show_owner=false" width="345" align="top" alt="FE-2-Medan-14" />
 </picture></a></p>
 
 </div>
@@ -109,25 +118,25 @@
 <div align="center">
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&theme=tokyonight&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&bg_color=ffffff&title_color=B8860B&text_color=24292f&icon_color=C1121F&hide_border=true" />
-  <img src="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&theme=tokyonight&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true" width="345" align="top" alt="GitHub stats" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&icon_color=8A6428&hide_border=true" />
+  <img src="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" width="345" align="top" alt="GitHub stats" />
 </picture>&nbsp;<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=rai-pramana&theme=tokyonight&background=1a1b27&border=30363d&stroke=E60012&ring=F7C948&fire=E60012&currStreakNum=F7C948&currStreakLabel=F7C948&sideNums=c9d1d9&sideLabels=c9d1d9&dates=8b949e&hide_border=true&card_width=345" />
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=rai-pramana&background=ffffff&border=e5e5e5&stroke=C1121F&ring=B8860B&fire=C1121F&currStreakNum=B8860B&currStreakLabel=B8860B&sideNums=24292f&sideLabels=24292f&dates=6e7781&hide_border=true&card_width=345" />
-  <img src="https://streak-stats.demolab.com?user=rai-pramana&theme=tokyonight&background=1a1b27&border=30363d&stroke=E60012&ring=F7C948&fire=E60012&currStreakNum=F7C948&currStreakLabel=F7C948&sideNums=c9d1d9&sideLabels=c9d1d9&dates=8b949e&hide_border=true&card_width=345" width="345" align="top" alt="Streak stats" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=rai-pramana&background=1a1b27&border=353A47&stroke=B08D57&ring=D8BD8A&fire=B08D57&currStreakNum=D8BD8A&currStreakLabel=D8BD8A&sideNums=c9d1d9&sideLabels=c9d1d9&dates=8b949e&hide_border=true&card_width=345" />
+  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=rai-pramana&background=ffffff&border=DCDCDC&stroke=8A6428&ring=8A6A2F&fire=8A6428&currStreakNum=8A6A2F&currStreakLabel=8A6A2F&sideNums=24292f&sideLabels=24292f&dates=6e7781&hide_border=true&card_width=345" />
+  <img src="https://streak-stats.demolab.com?user=rai-pramana&background=1a1b27&border=353A47&stroke=B08D57&ring=D8BD8A&fire=B08D57&currStreakNum=D8BD8A&currStreakLabel=D8BD8A&sideNums=c9d1d9&sideLabels=c9d1d9&dates=8b949e&hide_border=true&card_width=345" width="345" align="top" alt="Streak stats" />
 </picture></p>
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&theme=tokyonight&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&bg_color=ffffff&title_color=B8860B&text_color=24292f&hide_border=true" />
-  <img src="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&theme=tokyonight&bg_color=1a1b27&title_color=F7C948&text_color=c9d1d9&icon_color=E60012&hide_border=true" width="437" alt="Top languages" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&bg_color=ffffff&title_color=8A6A2F&text_color=24292f&hide_border=true" />
+  <img src="https://gh-readme-stats.vercel.app/api/top-langs/?username=rai-pramana&layout=compact&langs_count=9&hide=jupyter%20notebook&card_width=437&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" width="437" alt="Top languages" />
 </picture></p>
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=1a1b27&color=F7C948&line=E60012&point=F7C948&area=true&area_color=F7C948&hide_border=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=ffffff&color=B8860B&line=C1121F&point=C1121F&area=true&area_color=B8860B&hide_border=true" />
-  <img src="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=1a1b27&color=F7C948&line=E60012&point=F7C948&area=true&area_color=F7C948&hide_border=true" width="780" alt="Activity graph" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=1a1b27&color=D8BD8A&line=B08D57&point=D8BD8A&area=true&area_color=D8BD8A&hide_border=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=ffffff&color=8A6A2F&line=8A6428&point=8A6428&area=true&area_color=8A6A2F&hide_border=true" />
+  <img src="https://activitygraph.vercel.app/graph?username=rai-pramana&bg_color=1a1b27&color=D8BD8A&line=B08D57&point=D8BD8A&area=true&area_color=D8BD8A&hide_border=true" width="780" alt="Activity graph" />
 </picture></p>
 
 </div>
