@@ -123,7 +123,11 @@
 
 <div align="center">
 
-<p><img src="./profile-3d-contrib/profile-custom.svg" width="780" alt="3D contribution graph" /></p>
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/profile-3d-contrib/profile-custom.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/profile-3d-contrib/profile-custom-light.svg" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/profile-3d-contrib/profile-custom.svg" width="780" alt="3D contribution graph" />
+</picture></p>
 
 </div>
 
