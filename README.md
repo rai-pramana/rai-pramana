@@ -26,9 +26,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/hero-dark.svg?v=2" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/hero-light.svg?v=2" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/hero-dark.svg?v=2" width="100%" alt="" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/hero-dark.svg?v=3" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/hero-light.svg?v=3" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/hero-dark.svg?v=3" width="100%" alt="" />
 </picture>
 
 <h1 align="center">Rai Pramana</h1>
