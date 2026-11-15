@@ -30,11 +30,11 @@ jobs:
 
           MAP = {
               "#F7523F": "#B08D57",   # python -> muted gold
-              "#3572A5": "#9A7B45",   # blue   -> muted copper
+              "#3572A5": "#87683A",   # blue   -> muted copper
               "#3178C6": "#B08D57",   # ts     -> muted gold
-              "#DA5B0B": "#9A7B45",   # orange -> muted copper
+              "#DA5B0B": "#87683A",   # orange -> muted copper
               "#444444": "#353A47",   # grey   -> border slate
-              "#C1121F": "#9A7B45",   # stray light red -> copper
+              "#C1121F": "#87683A",   # stray light red -> copper
               "#E60012": "#B08D57",   # stray bright red -> gold
           }
 
