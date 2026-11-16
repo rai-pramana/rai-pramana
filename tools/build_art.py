@@ -176,7 +176,7 @@ PETALS = [(300, 60, 0.0), (700, 30, 3.1), (860, 70, 6.2), (500, 40, 8.4),
 def scene_svg(c):
     p = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{SCENE_W}" height="{SCENE_H}" '
-        f'viewBox="0 0 {SCENE_W} {SCENE_H}" role="img" aria-label="">',
+        f'viewBox="0 0 {SCENE_W} {SCENE_H}" aria-hidden="true" focusable="false">',
         "<style>"
         "@keyframes drift{from{transform:translateX(0)}to{transform:translateX(120px)}}"
         "@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.85}}"
