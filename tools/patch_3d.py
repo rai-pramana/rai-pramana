@@ -22,27 +22,35 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-PIE = '<g transform="translate(40, 520)">'   # the pie + its legend group
+PIE = '<g transform="translate(40, 520)"'   # the pie + its legend group
+KEY = '<g class="contrib-legend">'          # the legend we insert
 
 
-def strip_pie(s):
-    """Delete the depth-1 <g> subtree that starts at PIE."""
-    i = s.find(PIE)
-    if i == -1:
-        return s, False
-    d, j = 0, i
-    while True:
-        no, nc = s.find("<g", j), s.find("</g>", j)
-        if nc == -1:
-            raise ValueError("unbalanced <g> while stripping the pie")
-        if no != -1 and no < nc:
-            d += 1
-            j = no + 2
-        else:
-            d -= 1
-            j = nc + 4
-            if d == 0:
-                return s[:i] + s[j:], True
+def _drop(s, needle):
+    """Delete every balanced <g> subtree whose opening tag contains `needle`.
+
+    Returns (text, count). String scan, not XML: the SVG carries no namespaces
+    and re-serialising it would reorder attributes, breaking byte-comparison
+    against the action's own output.
+    """
+    out, n, i = [], 0, 0
+    while (j := s.find(needle, i)) != -1:
+        out.append(s[i:j])
+        d, k = 0, j
+        while True:
+            no, nc = s.find("<g", k), s.find("</g>", k)
+            if nc == -1:
+                raise ValueError(f"unbalanced <g> while dropping {needle!r}")
+            if no != -1 and no < nc:
+                d += 1
+                k = no + 2
+            else:
+                d -= 1
+                k = nc + 4
+                if d == 0:
+                    break
+        i, n = k, n + 1
+    return "".join(out) + s[i:], n
 
 
 def legend(colors, cx=240, cy=676):
@@ -54,88 +62,55 @@ def legend(colors, cx=240, cy=676):
     3:1 against both cards (3.76 dark / 4.55 light), so one stroke works for the
     pair instead of a per-theme variant.
     """
-    sw, gap = 26, 30
-    x0 = cx + 52
-    parts = [f'<text x="{cx}" y="{cy + 5}" class="fill-fg" font-size="13">Less</text>']
-    for i, c in enumerate(colors):
-        parts.append(
-            f'<rect x="{x0 + i * gap}" y="{cy - 13}" width="{sw}" height="{sw}" rx="3" '
-            f'fill="{c}" stroke="#6E7781" stroke-width="1"/>'
-        )
-    parts.append(
-        f'<text x="{x0 + len(colors) * gap + 2}" y="{cy + 5}" class="fill-fg" '
-        f'font-size="13">More</text>'
+    sw, gap, x0 = 26, 30, cx + 52
+    swatches = "".join(
+        f'<rect x="{x0 + i * gap}" y="{cy - 13}" width="{sw}" height="{sw}" rx="3" '
+        f'fill="{c}" stroke="#6E7781" stroke-width="1"/>'
+        for i, c in enumerate(colors)
     )
-    return '<g class="contrib-legend">' + "".join(parts) + '</g>'
-
-
-def strip_legend(s):
-    """Remove an already-inserted legend so the step can run twice safely."""
-    out, n = [], 0
-    i = 0
-    while True:
-        j = s.find('<g class="contrib-legend">', i)
-        if j == -1:
-            out.append(s[i:])
-            break
-        out.append(s[i:j])
-        d, k = 0, j
-        while True:
-            no, nc = s.find("<g", k), s.find("</g>", k)
-            if nc == -1:
-                raise ValueError("unbalanced <g> while stripping the legend")
-            if no != -1 and no < nc:
-                d += 1
-                k = no + 2
-            else:
-                d -= 1
-                k = nc + 4
-                if d == 0:
-                    break
-        i = k
-        n += 1
-    return "".join(out), n
+    more = x0 + len(colors) * gap + 2
+    return (f'{KEY}<text x="{cx}" y="{cy + 5}" class="fill-fg" font-size="13">Less</text>'
+            f'{swatches}<text x="{more}" y="{cy + 5}" class="fill-fg" font-size="13">More</text></g>')
 
 
 def main():
     settings = json.loads((ROOT / "profile-3d-settings.json").read_text())
     bad = 0
-    for entry in settings:
-        name = entry["fileName"]
-        p = ROOT / "profile-3d-contrib" / name
+    for e in settings:
+        p = ROOT / "profile-3d-contrib" / e["fileName"]
         if not p.exists():
-            print(f"  {name}: absent, skipped")
+            print(f"  {e['fileName']}: absent, skipped")
             continue
-        s = p.read_text()
-        s, had_legend = strip_legend(s)
-        s, hit = strip_pie(s)
+        s, had_key = _drop(p.read_text(), KEY)
+        s, hit = _drop(s, PIE)
         if not hit:
-            # run twice and the pie is already gone -- normal, not an error
-            print(f"  {name}: no pie group (already stripped)" if had_legend
-                  else f"  {name}: WARNING no pie group found (upstream changed?)")
-            if not had_legend:
-                bad += 1
+            # second run: the pie is already gone. Only an error if we never
+            # inserted a key either, i.e. upstream renamed the group.
+            print(f"  {e['fileName']}: no pie group (already stripped)" if had_key
+                  else f"  {e['fileName']}: WARNING no pie group found (upstream changed?)")
+            bad += not had_key
         arcs = len(re.findall(r'stroke-width="2px"', s))
         if arcs:
-            print(f"  {name}: WARNING {arcs} pie arc(s) survived the strip")
+            print(f"  {e['fileName']}: WARNING {arcs} pie arc(s) survived the strip")
             bad += 1
-        s = s.replace("</svg>", legend(entry["contribColors"]) + "</svg>")
+        s = s.replace("</svg>", legend(e["contribColors"]) + "</svg>")
         p.write_text(s)
-        print(f"  {name}: pie removed, legend added "
-              f"(replaced {had_legend} existing, {len(s)}B)")
+        print(f"  {e['fileName']}: pie removed, legend added "
+              f"(replaced {had_key} existing, {len(s)}B)")
 
-    # the legend must not become the new tofu: ASCII labels only
-    for entry in settings:
-        p = ROOT / "profile-3d-contrib" / entry["fileName"]
-        if p.exists():
-            s = p.read_text()
-            if not s.isascii():
-                print(f"  {entry['fileName']}: WARNING non-ASCII crept in")
-                bad += 1
-            if s.count('class="contrib-legend"') != 1:
-                print(f"  {entry['fileName']}: WARNING "
-                      f"{s.count('class=' + chr(34) + 'contrib-legend' + chr(34))} legends")
-                bad += 1
+    # the key must not become the new tofu: ASCII labels, exactly one legend
+    for e in settings:
+        p = ROOT / "profile-3d-contrib" / e["fileName"]
+        if not p.exists():
+            continue
+        s = p.read_text()
+        if not s.isascii():
+            print(f"  {e['fileName']}: WARNING non-ASCII crept in")
+            bad += 1
+        n = s.count(KEY)
+        if n != 1:
+            print(f"  {e['fileName']}: WARNING {n} legends (expected 1)")
+            bad += 1
     return 1 if bad else 0
 
 
