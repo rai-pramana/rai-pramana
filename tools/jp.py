@@ -52,11 +52,10 @@ def _font(kind, bold):
     return f, f.getGlyphSet(), f.getBestCmap(), f["head"].unitsPerEm
 
 
-def _pick(ch, bold):
-    """Non-ASCII goes to Zen Maru (it covers kana + kanji + punctuation);
-    ASCII stays on Noto so Latin copy keeps GitHub's body voice."""
-    kind = "latin" if ord(ch) < 128 else "jp"
-    return kind
+def _pick(ch):
+    """Non-ASCII goes to Zen Maru (kana, kanji, CJK punctuation); ASCII stays on
+    Noto so Latin copy keeps GitHub's body voice."""
+    return "latin" if ord(ch) < 128 else "jp"
 
 
 @lru_cache(maxsize=1024)
@@ -70,23 +69,20 @@ def layout(text, size, bold=False):
     x = 0.0
     box = [float("inf"), float("inf"), float("-inf"), float("-inf")]
     for ch in text:
-        kind = _pick(ch, bold)
-        _, gs, cmap, upem = _font(kind, bold)
-        s = size / upem
-        name = cmap.get(ord(ch))
-        if name is None:                      # last-ditch: any face that has it
-            kind = "jp" if kind == "latin" else "latin"
+        first = _pick(ch)
+        for kind in (first, "jp" if first == "latin" else "latin"):  # preferred, then fallback
             _, gs, cmap, upem = _font(kind, bold)
-            s = size / upem
             name = cmap.get(ord(ch))
-        if name is None:                      # nothing has it: keep the advance
+            if name:
+                break
+        if not name:                          # nothing has it: keep the advance
             x += size * 0.5
             continue
 
+        s = size / upem
         pen = SVGPathPen(gs)
         gs[name].draw(TransformPen(pen, Transform(s, 0, 0, -s, x, 0)))
-        d = pen.getCommands()
-        if d:
+        if d := pen.getCommands():
             paths.append(d)
 
         bp = BoundsPen(gs)
