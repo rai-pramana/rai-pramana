@@ -106,8 +106,9 @@ def main() -> int:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload))
+    shown = OUT.relative_to(ROOT) if OUT.is_relative_to(ROOT) else OUT
     print(f"{login}: {cal['totalContributions']} contributions, "
-          f"{len(cal['weeks'])} weeks -> {OUT.relative_to(ROOT)}")
+          f"{len(cal['weeks'])} weeks -> {shown}")
     return 0
 
 
