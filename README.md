@@ -40,8 +40,8 @@
     the Japanese lives in our own outlined SVGs and in the HTML headings.
     Corollary: the charts may use <text> freely, but only for ASCII (month
     initials, axis ticks, language names) set in a monospace stack.
-  · paired cards need align="top": the ghstats card with show= is taller than
-    streak, so without it they bottom-align and look broken
+  · paired cards need align="top": ghstats with show= renders 213px tall at
+    width 345 (verified live), streak 195px, so they bottom-align otherwise
   · ghstats `show=reviews,prs_merged,prs_merged_percentage` is undocumented but
     live -- it adds PR/Review rows the default card omits. In srcset the commas
     MUST be %2C: a literal comma splits srcset candidates, truncates the URL at
