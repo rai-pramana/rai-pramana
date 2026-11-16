@@ -40,10 +40,12 @@
     the Japanese lives in our own outlined SVGs and in the HTML headings.
     Corollary: the charts may use <text> freely, but only for ASCII (month
     initials, axis ticks, language names) set in a monospace stack.
-  · paired cards need align="top": ghstats with show= renders 213px tall at
-    width 345, streak 195px, so they bottom-align and look broken otherwise
+  · paired cards need align="top": the ghstats card with show= is taller than
+    streak, so without it they bottom-align and look broken
   · ghstats `show=reviews,prs_merged,prs_merged_percentage` is undocumented but
-    live -- it adds PR/Review rows the default card omits. Only ASCII-safe
+    live -- it adds PR/Review rows the default card omits. In srcset the commas
+    MUST be %2C: a literal comma splits srcset candidates, truncates the URL at
+    `show=reviews`, and silently ships the 13-row card. Only ASCII-safe
     additions: stars/commits/PRs. Never add discussions, they render 0.
   · repo descriptions must stay ASCII: an em-dash shows up as a literal backslash-u2014
   · never bulk-replace <img> tags — rewrite the file and assert src+alt on each
@@ -117,9 +119,9 @@
 <div align="center">
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=345&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true" />
-  <img src="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" width="345" align="top" alt="GitHub stats: 1.2k commits, 5 pull requests, 3 merged (60%), 2 reviews" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews%2Cprs_merged%2Cprs_merged_percentage&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews%2Cprs_merged%2Cprs_merged_percentage&card_width=345&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true" />
+  <img src="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews%2Cprs_merged%2Cprs_merged_percentage&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" width="345" align="top" alt="GitHub stats: 1.2k commits, 5 pull requests, 3 merged (60%), 2 reviews" />
 </picture>&nbsp;<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=rai-pramana&background=1a1b27&border=353A47&stroke=B08D57&ring=D8BD8A&fire=B08D57&currStreakNum=D8BD8A&currStreakLabel=D8BD8A&sideNums=c9d1d9&sideLabels=c9d1d9&dates=8b949e&hide_border=true&card_width=345" />
   <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=rai-pramana&background=ffffff&border=DCDCDC&stroke=87683A&ring=87683A&fire=87683A&currStreakNum=87683A&currStreakLabel=87683A&sideNums=24292f&sideLabels=24292f&dates=6e7781&hide_border=true&card_width=345" />
