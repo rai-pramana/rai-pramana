@@ -32,13 +32,23 @@ jobs:
       - name: Rebuild the chart
         run: python3 tools/build_momentum.py
 
-      # Two things must move together or the change is invisible:
-      #   * the alt text, which build_momentum.py embeds from the same series --
-      #     a stale alt is a quiet lie about data the chart does show
-      #   * the ?v=N cache-buster, because GitHub serves raw assets through camo
-      #     and an unchanged URL can keep serving the previous pixels
+      # GitHub keeps recalculating historical days (measured: 2026-09-13 23->22,
+      # 09-26 113->112, 09-27 90->91 in one day) with the TOTAL unchanged, so
+      # tools/data/contrib.json moves on every single run even when the drawing is
+      # identical. Committing that raw churn would bump ?v=N daily for a chart that
+      # did not change, and every bump invalidates the camo cache for nothing.
+      # So: decide from the RENDERED OUTPUT, never from the JSON.
       - name: Sync README alt text and cache-bust
+        id: sync
         run: |
+          if git diff --quiet -- assets/; then
+            echo "chart unchanged (only GitHub's historical recalc moved)"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            git checkout -- tools/data/contrib.json
+            exit 0
+          fi
+          echo "chart changed -> syncing alt text and cache-busters"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
           python3 - <<'PY'
           import re, sys
           sys.path.insert(0, "tools")
@@ -57,7 +67,8 @@ jobs:
           print(f"alt synced, {bump} cache-busters bumped: {alt}")
           PY
 
-      - name: Commit & push if the data moved
+      - name: Commit & push if the chart moved
+        if: steps.sync.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
