@@ -13,11 +13,12 @@ Two rules from the README apply here:
     body text clears 4.5:1 (1.4.3). The table at the bottom of main() enforces it.
 
 Animation is CSS inside the SVG, which survives GitHub's camo proxy and <img>
-embedding -- seigaiha-dark.svg has been drifting that way for months. The text
-itself never depends on animation: each glyph is a path whose only animated
-property is opacity, and its default is 1, so a client that refuses CSS shows
-the whole card, just still. There is deliberately no caret: it would sit in the
-wrong place once the last glyph lands.
+embedding -- seigaiha-dark.svg has been drifting that way for months. The two
+lines take turns typing themselves forever: each line types in, holds, fades,
+and the other line follows. The text never depends on animation: every glyph is
+a path whose only animated property is opacity, and its default is 1, so a
+client that refuses CSS shows the whole card, just still. There is deliberately
+no caret: it would sit in the wrong place once the last glyph lands.
 
 The charts live in siblings: build_langs.py (language donut) and
 build_momentum.py (monthly activity). This file is only the band.
@@ -31,8 +32,6 @@ OUT = HERE.parent / "assets"
 
 TYPING_W = 700
 TYPING_H = 66        # ink ends at 54.8 (line 2 descender); rule at 57.6 needs room
-CHAR_MS = 62         # per-glyph delay; ~16 chars/line reads as typing, not a wipe
-LINE_MS = 260        # pause between the two lines
 SCENE_W, SCENE_H = 1200, 260
 
 DARK = dict(bg="#1A1B27", sky="#141520", gold="#D8BD8A", bright="#F0E3C4",
@@ -42,10 +41,15 @@ LIGHT = dict(bg="#FFFFFF", sky="#FAF6EC", gold="#87683A", bright="#5E4423",
              bronze="#A98F5B", line="#C9B48C", soft="#6E7781", mount="#C9BA98",
              snow="#FFFFFF", glow="#D8BD8A")
 
-# (text, px size, baseline y, opacity)
+# (text, px size, baseline y, opacity, ms per glyph, hold ms, fade ms)
+#
+# The two lines alternate forever rather than typing once: each line types
+# itself, holds, fades out, then the other does the same. They sit on separate
+# rows (y 26 / y 50) so a client that ignores animation and shows both at once
+# still reads cleanly instead of overlapping.
 TYPING_LINES = [
-    ("こんにちは、ライともうします", 24, 26, 1.0),
-    ("Software Engineer · Data Engineer", 20, 50, 0.86),
+    ("こんにちは、ライともうします", 24, 26, 1.0, 92, 1500, 320),
+    ("Software Engineer · Data Engineer", 20, 50, 0.86, 34, 1500, 320),
 ]
 RULE_Y = 57.6          # sits below line 2's descender box (50 + 4.8 = 54.8)
 
@@ -64,47 +68,96 @@ def contrast(a, b):
 
 # ---------------------------------------------------------------- typing band
 def typing_svg(gold, bright, bg):
-    """Two outlined lines that type themselves, centred, with a rule that draws.
+    """Two outlined lines that take turns typing themselves, forever.
 
-    Each glyph is a <path> with its own animation-delay, so the band types on
-    instead of appearing whole. The reveal animates OPACITY ONLY, and the
-    default (no-CSS) value is opacity 1 -- a client that strips <style> shows
-    both lines complete instead of blank, which is the failure mode a
-    `visibility:hidden` + `forwards` approach would have. No caret: it would sit
-    in the wrong place once the last glyph lands, and a cursor that has to be
-    hidden after typing is one more thing that can break in a static renderer.
+    Each glyph is a <path> with its own negative animation-delay, so a line is
+    mid-typing the instant the SVG loads instead of starting from blank. The
+    reveal animates OPACITY ONLY, and the default (no-CSS) value is opacity 1 --
+    a client that strips <style> shows both lines complete instead of blank,
+    which is the failure mode a `visibility:hidden` + `forwards` approach has.
+
+    The two lines alternate on separate rows rather than sharing one: a loop
+    that blanked the whole band between turns would read as a flicker, and a
+    client that ignores animation would see an empty band. Separate rows means
+    the static fallback is the full two-line block.
+
+    There is deliberately no caret: it would sit in the wrong place once the
+    last glyph lands, and hiding it afterwards is one more thing that can break
+    in a renderer that never runs the animation.
     """
+    # One cycle = every line typing + holding + fading, in order. Each line's
+    # group carries the visibility window; each glyph carries the typing reveal.
+    spans, clock = [], 0.0
+    for txt, size, base, op, per, hold, fade in TYPING_LINES:
+        n = len(jp.runs(txt, size)[0])
+        spans.append(dict(start=clock, n=n, per=per, hold=hold, fade=fade,
+                          type_ms=n * per))
+        clock += n * per + hold + fade
+    cycle = clock
+
+    pct = lambda ms: f"{ms / cycle * 100:.3f}%"
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{TYPING_W}" height="{TYPING_H}" '
         f'viewBox="0 0 {TYPING_W} {TYPING_H}" role="img" '
         f'aria-label="{TYPING_LINES[0][0]} — {TYPING_LINES[1][0]}">',
         "<style>"
-        "@keyframes type{from{opacity:0}to{opacity:1}}"
         "@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
-        "@keyframes glow{0%,100%{opacity:.45}50%{opacity:.85}}"
-        "@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}"
-        ".ch{animation:type .01s linear both}"
-        ".rule{transform-origin:50% 50%;animation:draw 1.1s .15s ease-out both}"
+        "@keyframes glow{0%,100%{opacity:.45}50%{opacity:.85}}",
+    ]
+    # The window: invisible outside the line's turn, visible inside it, then a
+    # short fade at the end so the handover does not snap. One cycle long and
+    # infinite, so it repeats in lockstep with the glyphs.
+    #
+    # The "hidden" stop must be its OWN offset, not merged with 0%: writing
+    # `0%,52.5%{opacity:0}` and then `52.5%{opacity:1}` leaves Chrome with a
+    # single 52.5% stop valued 1, so it ramps 0->1 across the whole first half
+    # and the line is faintly visible before its turn. Two distinct offsets
+    # (52.553 -> 52.570) make the step vertical.
+    for i, s in enumerate(spans):
+        s_end = s["start"] + s["type_ms"] + s["hold"]
+        parts.append(
+            f"@keyframes w{i}{{"
+            f"0%{{opacity:0}}"
+            + (f"{pct(s['start'])}{{opacity:0}}" if s["start"] > 0 else "")
+            + f"{pct(s['start'] + 1)}{{opacity:1}}"
+            f"{pct(s_end)}{{opacity:1}}"
+            f"{pct(s_end + s['fade'])}{{opacity:0}}"
+            f"100%{{opacity:0}}}}")
+    # The glyph reveal: one @keyframes per glyph, each flipping to 1 at its own
+    # millisecond inside the shared cycle. A per-glyph keyframe (rather than a
+    # negative animation-delay) is what makes the stagger survive the loop --
+    # a negative delay makes every glyph look already-typed on frame 0.
+    reveal = "".join(
+        f"@keyframes g{n}{{0%,{pct(s['start'] + k * per)}{{opacity:0}}"
+        f"{pct(s['start'] + k * per + 1)}{{opacity:1}}100%{{opacity:1}}}}"
+        for i, (txt, size, base, op, per, hold, fade) in enumerate(TYPING_LINES)
+        for s in [spans[i]]
+        for k in range(len(jp.runs(txt, size)[0]))
+        for n in [i * 1000 + k]
+    )
+    parts.append(
+        reveal
+        + ".rule{transform-origin:50% 50%;animation:draw 1.1s .15s ease-out both}"
         ".spark{animation:glow 4.5s ease-in-out infinite}"
         "@media (prefers-reduced-motion:reduce){*{animation:none!important;"
-        "transform:none!important}}"
+        "transform:none!important;opacity:1!important}}"
         "</style>",
-    ]
+    )
 
-    widths, clock = [], 0.0
-    for txt, size, base, op in TYPING_LINES:
+    widths = []
+    for i, (txt, size, base, op, per, hold, fade) in enumerate(TYPING_LINES):
         glyphs, w = jp.runs(txt, size)
         widths.append(w)
         x = (TYPING_W - w) / 2
         body = "".join(
-            f'<path class="ch" style="animation-delay:{clock + i * CHAR_MS:.0f}ms" '
-            f'd="{d}"/>'
-            for i, (d, _) in enumerate(glyphs)
+            f'<path class="ch" style="animation:g{i * 1000 + k} '
+            f'{cycle:.0f}ms linear infinite" d="{d}"/>'
+            for k, (d, _) in enumerate(glyphs)
         )
         parts.append(
             f'<g transform="translate({x:.2f},{base})" fill="{gold}" '
-            f'fill-opacity="{op}">{body}</g>')
-        clock += len(glyphs) * CHAR_MS + LINE_MS
+            f'fill-opacity="{op}" style="animation:w{i} {cycle:.0f}ms '
+            f'linear infinite">{body}</g>')
 
     # hairline under the block, exactly as wide as the wider line
     half = max(widths) / 2
