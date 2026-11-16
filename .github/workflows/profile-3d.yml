@@ -20,36 +20,18 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
           SETTING_JSON: profile-3d-settings.json
 
-      # The action paints the top-language legend from GitHub's own language
-      # colours, hardcoded upstream — settings.json cannot reach them. Those are
-      # the only saturated fills left in the graph, so remap them here.
-      - name: Calm the language legend
-        run: |
-          python3 - <<'PY'
-          import re, pathlib
-
-          MAP = {
-              "#F7523F": "#B08D57",   # python -> muted gold
-              "#3572A5": "#87683A",   # blue   -> muted copper
-              "#3178C6": "#B08D57",   # ts     -> muted gold
-              "#DA5B0B": "#87683A",   # orange -> muted copper
-              "#444444": "#353A47",   # grey   -> border slate
-              "#C1121F": "#87683A",   # stray light red -> copper
-              "#E60012": "#B08D57",   # stray bright red -> gold
-          }
-
-          for f in ("profile-custom.svg", "profile-custom-light.svg"):
-              p = pathlib.Path(f)
-              if not p.exists():
-                  continue
-              s = p.read_text()
-              n = 0
-              for old, new in MAP.items():
-                  s, k = re.subn(re.escape(old), new, s, flags=re.I)
-                  n += k
-              p.write_text(s)
-              print(f"{f}: remapped {n} fill(s)")
-          PY
+      # The action always emits a language pie + legend in the lower-left. That
+      # duplicates the 技術 · Stack card, and it counts "Jupyter Notebook", which
+      # the language card skips on purpose (notebooks commit base64 PNG output).
+      # Drop the pie and put a colour key for the 3D bars in its place -- the bars
+      # use five shades with nothing explaining them.
+      #
+      # This also retires an earlier step that remapped GitHub's own language
+      # colours (#F7523F python, #3572A5 blue, ...). Those fills lived only in the
+      # pie; contribColors come from settings.json, so after the strip there is
+      # nothing left to remap (verified: 0 matches).
+      - name: Replace the language pie with a bar colour key
+        run: python3 tools/patch_3d.py
 
       - name: Commit & Push
         run: |
