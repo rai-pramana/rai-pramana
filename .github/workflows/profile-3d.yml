@@ -38,6 +38,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A .
-          if git commit -m "chore: regenerate 3D contribution graph"; then
-            git push
+          if git diff --cached --quiet; then
+            echo "no change in the 3D graph"
+            exit 0
           fi
+          git commit -m "chore: regenerate 3D contribution graph"
+          # Other jobs land commits on this branch (snake at 08:00, momentum at
+          # 03:17), so the branch can move between checkout and push.
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then
+              echo "pushed"
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying"
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "could not push after 3 attempts"
+          exit 1
