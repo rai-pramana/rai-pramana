@@ -32,23 +32,29 @@ jobs:
       - name: Rebuild the chart
         run: python3 tools/build_momentum.py
 
-      - name: Sync the README alt text with the new totals
+      # Two things must move together or the change is invisible:
+      #   * the alt text, which build_momentum.py embeds from the same series --
+      #     a stale alt is a quiet lie about data the chart does show
+      #   * the ?v=N cache-buster, because GitHub serves raw assets through camo
+      #     and an unchanged URL can keep serving the previous pixels
+      - name: Sync README alt text and cache-bust
         run: |
           python3 - <<'PY'
-          import json, re, subprocess, sys
+          import re, sys
           sys.path.insert(0, "tools")
           import build_momentum as bm
 
-          series = bm.load_series()
-          alt = bm.alt_text(series)
+          alt = bm.alt_text(bm.load_series())
           p = "README.md"
           s = open(p).read()
           new, n = re.subn(r'(momentum-dark\.svg\?v=\d+" width="100%" alt=")[^"]*(")',
                            lambda m: m.group(1) + alt + m.group(2), s)
           if n != 1:
             sys.exit(f"FAIL: expected 1 momentum img, patched {n}")
+          new, bump = re.subn(r'(momentum-(?:dark|light)\.svg)\?v=(\d+)',
+                              lambda m: f"{m.group(1)}?v={int(m.group(2)) + 1}", new)
           open(p, "w").write(new)
-          print(f"alt synced: {alt}")
+          print(f"alt synced, {bump} cache-busters bumped: {alt}")
           PY
 
       - name: Commit & push if the data moved
@@ -58,6 +64,19 @@ jobs:
           git add -A .
           if git diff --cached --quiet; then
             echo "no change in contribution data"
-          elif git commit -m "chore: refresh momentum chart"; then
-            git push
+            exit 0
           fi
+          git commit -m "chore: refresh momentum chart"
+          # The 3D job can commit at 02:00 and snake at 08:00, so the branch may
+          # have moved since checkout. Rebase rather than fail the run.
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then
+              echo "pushed"
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying"
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "could not push after 3 attempts"
+          exit 1
