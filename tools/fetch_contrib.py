@@ -77,10 +77,26 @@ def api(path: str, tok: str, body: dict | None = None) -> dict:
         sys.exit(f"GitHub API {path} failed: HTTP {exc.code}\n{exc.read().decode()[:400]}")
 
 
+def login_name(tok: str) -> str:
+    """The account to draw the calendar for.
+
+    Actions sets GITHUB_REPOSITORY_OWNER; prefer it, because the workflow's
+    GITHUB_TOKEN cannot call GET /user ("Resource not accessible by
+    integration", HTTP 403). Locally, fall back to asking the API.
+    """
+    owner = os.environ.get("GITHUB_REPOSITORY_OWNER")
+    if owner:
+        return owner
+    try:
+        return api("user", tok)["login"]
+    except SystemExit:
+        sys.exit("cannot determine the GitHub login: set GITHUB_REPOSITORY_OWNER")
+
+
 def main() -> int:
     tok = token()
 
-    login = api("user", tok)["login"]
+    login = login_name(tok)
 
     payload = api("graphql", tok, {"query": QUERY, "variables": {"login": login}})
     if "errors" in payload:
