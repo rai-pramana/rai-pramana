@@ -40,8 +40,11 @@
     the Japanese lives in our own outlined SVGs and in the HTML headings.
     Corollary: the charts may use <text> freely, but only for ASCII (month
     initials, axis ticks, language names) set in a monospace stack.
-  · paired cards need align="top" (154px vs 195px natural height) or they
-    bottom-align and look broken
+  · paired cards need align="top": ghstats with show= renders 213px tall at
+    width 345, streak 195px, so they bottom-align and look broken otherwise
+  · ghstats `show=reviews,prs_merged,prs_merged_percentage` is undocumented but
+    live -- it adds PR/Review rows the default card omits. Only ASCII-safe
+    additions: stars/commits/PRs. Never add discussions, they render 0.
   · repo descriptions must stay ASCII: an em-dash shows up as a literal backslash-u2014
   · never bulk-replace <img> tags — rewrite the file and assert src+alt on each
   · snake light file is output/snake.svg (NOT snake-light.svg)
@@ -68,9 +71,9 @@
 <h1 align="center">Rai Pramana</h1>
 
 <p><a href="https://github.com/rai-pramana"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-dark.svg?v=1" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-light.svg?v=1" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-dark.svg?v=1" width="700" alt="こんにちは、ライともうします — Software Engineer · Data Engineer" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-dark.svg?v=2" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-light.svg?v=2" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-dark.svg?v=2" width="700" alt="こんにちは、ライともうします — Software Engineer · Data Engineer" />
 </picture></a></p>
 
 <p>
@@ -114,9 +117,9 @@
 <div align="center">
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true" />
-  <img src="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" width="345" align="top" alt="GitHub stats" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=345&bg_color=ffffff&title_color=87683A&text_color=24292f&icon_color=87683A&hide_border=true" />
+  <img src="https://gh-readme-stats.vercel.app/api?username=rai-pramana&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=345&bg_color=1a1b27&title_color=D8BD8A&text_color=c9d1d9&icon_color=B08D57&hide_border=true" width="345" align="top" alt="GitHub stats: 1.2k commits, 5 pull requests, 3 merged (60%), 2 reviews" />
 </picture>&nbsp;<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=rai-pramana&background=1a1b27&border=353A47&stroke=B08D57&ring=D8BD8A&fire=B08D57&currStreakNum=D8BD8A&currStreakLabel=D8BD8A&sideNums=c9d1d9&sideLabels=c9d1d9&dates=8b949e&hide_border=true&card_width=345" />
   <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=rai-pramana&background=ffffff&border=DCDCDC&stroke=87683A&ring=87683A&fire=87683A&currStreakNum=87683A&currStreakLabel=87683A&sideNums=24292f&sideLabels=24292f&dates=6e7781&hide_border=true&card_width=345" />

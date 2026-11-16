@@ -101,6 +101,36 @@ def layout(text, size, bold=False):
     return paths, x, tuple(box)
 
 
+def runs(text, size, bold=False):
+    """Per-character outlines as (path_d, x_start).
+
+    Same shaping as layout(), but one entry per glyph so a caller can stagger
+    them. `d` already carries its own x offset (TransformPen bakes it in), so a
+    caller only needs to translate the whole line to centre it. Whitespace
+    advances the pen and yields no entry -- a space types instantly, which is
+    what a real typist's rhythm looks like anyway.
+    """
+    out, x = [], 0.0
+    for ch in text:
+        first = _pick(ch)
+        name = None
+        for kind in (first, "jp" if first == "latin" else "latin"):
+            _, gs, cmap, upem = _font(kind, bold)
+            name = cmap.get(ord(ch))
+            if name:
+                break
+        if not name:                          # nothing has it: keep the advance
+            x += size * 0.5
+            continue
+        s = size / upem
+        pen = SVGPathPen(gs)
+        gs[name].draw(TransformPen(pen, Transform(s, 0, 0, -s, x, 0)))
+        if d := pen.getCommands():
+            out.append((d, x))
+        x += gs[name].width * s
+    return out, x
+
+
 def svg(text, size, fill, bold=False, pad=0.04, cls=""):
     """Standalone SVG document for `text`, cropped to its ink box."""
     paths, width, (x0, y0, x1, y1) = layout(text, size, bold)

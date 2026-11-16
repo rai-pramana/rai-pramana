@@ -14,9 +14,10 @@ Two rules from the README apply here:
 
 Animation is CSS inside the SVG, which survives GitHub's camo proxy and <img>
 embedding -- seigaiha-dark.svg has been drifting that way for months. The text
-itself never depends on animation: the resting state is fully visible, and the
-moving part is a drawn rule. A client that refuses CSS still shows the whole
-card, just still.
+itself never depends on animation: each glyph is a path whose only animated
+property is opacity, and its default is 1, so a client that refuses CSS shows
+the whole card, just still. There is deliberately no caret: it would sit in the
+wrong place once the last glyph lands.
 
 The charts live in siblings: build_langs.py (language donut) and
 build_momentum.py (monthly activity). This file is only the band.
@@ -30,6 +31,8 @@ OUT = HERE.parent / "assets"
 
 TYPING_W = 700
 TYPING_H = 66        # ink ends at 54.8 (line 2 descender); rule at 57.6 needs room
+CHAR_MS = 62         # per-glyph delay; ~16 chars/line reads as typing, not a wipe
+LINE_MS = 260        # pause between the two lines
 SCENE_W, SCENE_H = 1200, 260
 
 DARK = dict(bg="#1A1B27", sky="#141520", gold="#D8BD8A", bright="#F0E3C4",
@@ -61,17 +64,26 @@ def contrast(a, b):
 
 # ---------------------------------------------------------------- typing band
 def typing_svg(gold, bright, bg):
-    """Two outlined lines, centred, with a rule that draws itself once.
+    """Two outlined lines that type themselves, centred, with a rule that draws.
 
-    Nothing is clipped at rest: a CSS-blind client shows both lines complete.
+    Each glyph is a <path> with its own animation-delay, so the band types on
+    instead of appearing whole. The reveal animates OPACITY ONLY, and the
+    default (no-CSS) value is opacity 1 -- a client that strips <style> shows
+    both lines complete instead of blank, which is the failure mode a
+    `visibility:hidden` + `forwards` approach would have. No caret: it would sit
+    in the wrong place once the last glyph lands, and a cursor that has to be
+    hidden after typing is one more thing that can break in a static renderer.
     """
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{TYPING_W}" height="{TYPING_H}" '
         f'viewBox="0 0 {TYPING_W} {TYPING_H}" role="img" '
-        f'aria-label="こんにちは、ライともうします — Software Engineer · Data Engineer">',
+        f'aria-label="{TYPING_LINES[0][0]} — {TYPING_LINES[1][0]}">',
         "<style>"
+        "@keyframes type{from{opacity:0}to{opacity:1}}"
         "@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
         "@keyframes glow{0%,100%{opacity:.45}50%{opacity:.85}}"
+        "@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}"
+        ".ch{animation:type .01s linear both}"
         ".rule{transform-origin:50% 50%;animation:draw 1.1s .15s ease-out both}"
         ".spark{animation:glow 4.5s ease-in-out infinite}"
         "@media (prefers-reduced-motion:reduce){*{animation:none!important;"
@@ -79,12 +91,20 @@ def typing_svg(gold, bright, bg):
         "</style>",
     ]
 
-    widths = []
+    widths, clock = [], 0.0
     for txt, size, base, op in TYPING_LINES:
-        g, w = jp.group(txt, size, gold, 0, base, opacity=op)
+        glyphs, w = jp.runs(txt, size)
         widths.append(w)
         x = (TYPING_W - w) / 2
-        parts.append(f'<g transform="translate({x:.2f},0)">{g}</g>')
+        body = "".join(
+            f'<path class="ch" style="animation-delay:{clock + i * CHAR_MS:.0f}ms" '
+            f'd="{d}"/>'
+            for i, (d, _) in enumerate(glyphs)
+        )
+        parts.append(
+            f'<g transform="translate({x:.2f},{base})" fill="{gold}" '
+            f'fill-opacity="{op}">{body}</g>')
+        clock += len(glyphs) * CHAR_MS + LINE_MS
 
     # hairline under the block, exactly as wide as the wider line
     half = max(widths) / 2
