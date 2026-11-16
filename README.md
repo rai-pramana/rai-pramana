@@ -23,13 +23,26 @@
   Editing notes (learned the hard way):
   · every block sits in its own <p>: inside a <div>, blank lines do NOT create
     paragraphs and GitHub strips style=, so widgets collapse to ~5px gaps
-  · no <text> in any local SVG: the name is HTML, so a font/cache/proxy
-    failure can never blank it out
+  · no <text> in any local SVG: every glyph is an outlined <path> (tools/jp.py).
+    GitHub renders <img src="*.svg"> on the *viewer's* machine, so any <text> is
+    one missing font away from a row of boxes
+  · NEVER point at a third-party widget that renders Japanese. shields.io,
+    komarev and readme-typing-svg all emit <text> bound to Verdana/Geneva/DejaVu
+    (or a webfont they never embed -- readme-typing-svg asked for Zen Maru Gothic
+    with @font-face count 0, base64 count 0, then fell through to monospace).
+    Those fonts ship everywhere and contain zero CJK glyphs, so the boxes appear
+    on every platform, Windows included. Their labels are ASCII for that reason;
+    the Japanese lives in our own outlined SVGs and in the HTML headings.
   · paired cards need align="top" (154px vs 195px natural height) or they
     bottom-align and look broken
   · repo descriptions must stay ASCII: an em-dash shows up as a literal backslash-u2014
   · never bulk-replace <img> tags — rewrite the file and assert src+alt on each
   · snake light file is output/snake.svg (NOT snake-light.svg)
+
+  Regenerate the drawn assets after editing them:
+    ~/.hermes/cache/scratch/.fontvenv/bin/python tools/build_art.py
+    ~/.hermes/cache/scratch/.fontvenv/bin/python tools/build_langs.py
+  Both exit non-zero if any colour drops below its contrast floor.
 -->
 
 <div align="center">
@@ -42,12 +55,16 @@
 
 <h1 align="center">Rai Pramana</h1>
 
-<p><a href="https://github.com/rai-pramana"><img src="https://readme-typing-svg.demolab.com?font=Zen+Maru+Gothic&weight=600&size=24&duration=2600&pause=2800&color=D8BD8A&center=true&vCenter=true&width=700&height=48&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%80%81%E3%83%A9%E3%82%A4%E3%81%A8%E3%82%82%E3%81%86%E3%81%97%E3%81%BE%E3%81%99;Software%20Engineer%20%C2%B7%20Data%20Engineer" alt="Typing SVG" /></a></p>
+<p><a href="https://github.com/rai-pramana"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-light.svg?v=1" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/typing-dark.svg?v=1" width="700" alt="こんにちは、ライともうします — Software Engineer · Data Engineer" />
+</picture></a></p>
 
 <p>
-<img src="https://komarev.com/ghpvc/?username=rai-pramana&label=%E9%96%B2%E8%A6%A7%E8%80%85&color=B08D57&style=flat-square&labelColor=1a1b27" height="20" alt="Profile views" />
+<img src="https://komarev.com/ghpvc/?username=rai-pramana&label=Profile%20views&color=B08D57&style=flat-square&labelColor=1a1b27" height="20" alt="Profile views" />
 &nbsp;
-<img src="https://img.shields.io/github/followers/rai-pramana?style=flat-square&logo=github&logoColor=D8BD8A&label=%E3%83%95%E3%82%A9%E3%83%AD%E3%83%AF%E3%83%BC&labelColor=1a1b27&color=B08D57" height="20" alt="Followers" />
+<img src="https://img.shields.io/github/followers/rai-pramana?style=flat-square&logo=github&logoColor=D8BD8A&label=Followers&labelColor=1a1b27&color=B08D57" height="20" alt="Followers" />
 &nbsp;
 <a href="https://github.com/rai-pramana"><img src="https://img.shields.io/badge/GitHub-rai--pramana-181717?style=flat-square&logo=github&logoColor=D8BD8A&labelColor=1a1b27" height="20" alt="GitHub" /></a>
 &nbsp;
@@ -68,24 +85,18 @@
 
 </div>
 
-## 作品 · Selected Work
+## 富士 · Fuji
 
-<sub>Pinned repositories, with live stats from the GitHub API.</sub>
+<div align="center">
 
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/fuji-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/fuji-light.svg?v=1" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/fuji-dark.svg?v=1" width="100%" alt="" />
+</picture></p>
 
-<table>
-<thead>
-<tr><th align="left">Project</th><th align="left">Summary</th></tr>
-</thead>
-<tbody>
-<tr><td width="220"><a href="https://github.com/rai-pramana/Biblio"><b>Biblio</b></a><br><sub>Java</sub></td><td>Aplikasi Android review dan manajemen koleksi buku.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2025-10-04</sub></td></tr>
-<tr><td width="220"><a href="https://github.com/rai-pramana/Holic-Barbershop"><b>Holic&#8209;Barbershop</b></a><br><sub>Blade</sub></td><td>Sistem antrean barbershop online: QR check-in, status real-time, push notification.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2026-10-01</sub></td></tr>
-<tr><td width="220"><a href="https://github.com/rai-pramana/NyankoGarage"><b>NyankoGarage</b></a><br><sub>TypeScript</sub></td><td>Garage management system: produk, stok, transaksi, real-time.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2026-05-06</sub></td></tr>
-<tr><td width="220"><a href="https://github.com/rai-pramana/Vehicle-AccidentYoloApp"><b>Vehicle&#8209;AccidentYoloApp</b></a><br><sub>Notebook</sub></td><td>Deteksi kecelakaan kendaraan dari feed kamera dengan YOLO, Gymnasium, dan notebook eksperimen.<br><sub>&#9733; 0 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2026-02-08</sub></td></tr>
-<tr><td width="220"><a href="https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Medan-14"><b>BE&#8209;2&#8209;Medan&#8209;14</b></a><br><sub>Kampus-Merdeka-Software-Engineering</sub><br><sub>JavaScript</sub></td><td>Backend for Lele Store (single seller, F&B).<br><sub>&#9733; 1 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2023-12-10</sub></td></tr>
-<tr><td width="220"><a href="https://github.com/Kampus-Merdeka-Software-Engineering/FE-2-Medan-14"><b>FE&#8209;2&#8209;Medan&#8209;14</b></a><br><sub>Kampus-Merdeka-Software-Engineering</sub><br><sub>CSS</sub></td><td>Frontend for Lele Store (single seller, F&B).<br><sub>&#9733; 1 &nbsp;&#10506; 0 &nbsp;·&nbsp; push 2023-12-10</sub></td></tr>
-</tbody>
-</table>
+</div>
+
 ## 記録 · Stats
 
 <div align="center">
@@ -101,9 +112,9 @@
 </picture></p>
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-dark.svg?v=1" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-light.svg?v=1" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-dark.svg?v=1" width="437" alt="Top Languages" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-dark.svg?v=2" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-light.svg?v=2" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/langs-dark.svg?v=2" width="437" alt="Top Languages" />
 </picture></p>
 
 <p><picture>
