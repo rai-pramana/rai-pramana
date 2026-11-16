@@ -13,6 +13,11 @@
   light: white #ffffff · deep gold #87683A (titles + icons) · text #24292f
          text #24292f · border #DCDCDC
 
+  Charts stay inside one warm family (hue 27-47 deg) instead of a rainbow:
+  bronze -> gold -> cream on dark, near-black -> bronze on light. Every slice
+  clears 3:1 against its card (WCAG 1.4.11) and neighbouring slices are kept
+  apart by >= 0.10 OKLab dE, which is what a monotone ramp fails at.
+
   Why muted: #F7C948 and #E60012 read as toy-bright at 546px and fought the
   neo-Tokyo ink. Dropping them to #D8BD8A / #B08D57 keeps contrast (5.52:1 on
   ink, 5.16:1 on white) while letting the seigaiha texture and crest carry the theme instead of
@@ -33,16 +38,23 @@
     Those fonts ship everywhere and contain zero CJK glyphs, so the boxes appear
     on every platform, Windows included. Their labels are ASCII for that reason;
     the Japanese lives in our own outlined SVGs and in the HTML headings.
+    Corollary: the charts may use <text> freely, but only for ASCII (month
+    initials, axis ticks, language names) set in a monospace stack.
   · paired cards need align="top" (154px vs 195px natural height) or they
     bottom-align and look broken
   · repo descriptions must stay ASCII: an em-dash shows up as a literal backslash-u2014
   · never bulk-replace <img> tags — rewrite the file and assert src+alt on each
   · snake light file is output/snake.svg (NOT snake-light.svg)
+  · chart alt text carries the numbers: a chart is an image, so the values it
+    encodes must be readable without seeing it. Keep the totals in the README in
+    step with the data, or the alt becomes a lie.
 
   Regenerate the drawn assets after editing them:
-    ~/.hermes/cache/scratch/.fontvenv/bin/python tools/build_art.py
-    ~/.hermes/cache/scratch/.fontvenv/bin/python tools/build_langs.py
-  Both exit non-zero if any colour drops below its contrast floor.
+    ~/.hermes/cache/scratch/.fontvenv/bin/python tools/build_art.py       # typing band
+    python3 tools/build_langs.py                                          # language donut
+    python3 tools/fetch_contrib.py && python3 tools/build_momentum.py     # activity chart
+  Each exits non-zero if any colour drops below its contrast floor, or if two
+  neighbouring donut slices are too alike (OKLab dE < 0.10).
 -->
 
 <div align="center">
@@ -85,14 +97,14 @@
 
 </div>
 
-## 富士 · Fuji
+## 勢い · Momentum
 
 <div align="center">
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/fuji-dark.svg?v=1" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/fuji-light.svg?v=1" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/fuji-dark.svg?v=1" width="100%" alt="" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-light.svg?v=1" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-dark.svg?v=1" width="100%" alt="Monthly contribution activity for the last 13 months, 2165 contributions total. Busiest month Oct 2026 with 785." />
 </picture></p>
 
 </div>

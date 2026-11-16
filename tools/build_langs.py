@@ -31,18 +31,50 @@ rows = [(k, v) for k, v in sorted(LANGS.items(), key=lambda kv: -kv[1]) if k not
 total = sum(v for _, v in rows)
 
 # name, dark-theme slice, light-theme slice
+#
+# Slices are drawn in size order (see `rows`), so this list is indexed by
+# position on the ring. The tone sequence is the permutation that maximises the
+# *minimum* OKLab ΔE between neighbouring slices, ring included (7 wraps to 0),
+# for both themes at once: min adjacent ΔE = 0.121, about 2x the 0.053 a
+# monotone ramp gives. Hue stays inside 27-47 deg (page accent is 36-38), so it
+# is still one warm family -- bronze -> gold -> cream on dark, near-black ->
+# bronze on light -- and every tone clears 3:1 against its card.
 PALETTE = [
-    ("Python",           "#E9D6B4", "#6E5730"),
-    ("JavaScript",       "#B4813C", "#9A6B2F"),
-    ("HTML",             "#6F7F8C", "#33404E"),
-    ("C",                "#8A6F45", "#7A5C2E"),
-    ("Kotlin",           "#D8BD8A", "#4C391C"),
-    ("Shell",            "#7E6A9B", "#5F5178"),
-    ("TeX",              "#A9803F", "#8A6F45"),
-    ("TypeScript",       "#5C6B7D", "#55636F"),
+    ("Python",           "#926536", "#1B1611"),
+    ("JavaScript",       "#B9AD95", "#7E6234"),
+    ("HTML",             "#977C4E", "#382311"),
+    ("C",                "#DAC089", "#986A32"),
+    ("Kotlin",           "#B98D61", "#4C351E"),
+    ("Shell",            "#DBD1C1", "#A97E3E"),
+    ("TeX",              "#CEAF6A", "#63563D"),
+    ("TypeScript",       "#F2E9D8", "#957F65"),
 ]
 assert len(PALETTE) >= len(rows)
 COL = {n: (d, l) for n, d, l in PALETTE}
+
+# adjacency is a property of the ring, so assert it rather than trust it
+_ORDER = [n for n, _ in rows]
+
+
+def _oklab(h):
+    def lin(c):
+        return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (int(h.lstrip("#")[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    r, g, b = lin(r), lin(g), lin(b)
+    l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b
+    m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b
+    s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b
+    l, m, s = (math.copysign(abs(x) ** (1 / 3), x) for x in (l, m, s))
+    return (0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s,
+            1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s,
+            0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s)
+
+
+def _ring_min_delta(idx):
+    ring = [COL[n][idx] for n in _ORDER]
+    n = len(ring)
+    return min(math.dist(_oklab(ring[i]), _oklab(ring[(i + 1) % n]))
+               for i in range(n))
 
 W, H = 480, 264
 CX, CY, R_OUT, R_IN = 128, 146, 84, 52
@@ -134,6 +166,15 @@ for n, v in rows:
     bad += flag != ""
     print(f"  {n:<11} {100 * v / total:5.1f}%  dark {d} {cd:5.2f}:1   "
           f"light {l} {cl:5.2f}:1{flag}")
+
+# neighbour separation on the ring: the check that a monotone ramp fails
+for idx, theme in ((0, "dark"), (1, "light")):
+    m = _ring_min_delta(idx)
+    ok = m >= 0.10
+    bad += not ok
+    print(f"  ring {theme:5} min neighbour dE {m:.4f}  "
+          f"{'OK' if ok else 'FAIL (slices too similar)'}")
+
 for f in ("langs-dark", "langs-light"):
     s = (out / f"{f}.svg").read_text()
     print(f"  {f}: {len(s)}B slices={s.count('<path')} text={s.count('<text')}")
