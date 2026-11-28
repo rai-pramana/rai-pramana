@@ -105,9 +105,9 @@
 <div align="center">
 
 <p><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-dark.svg?v=22" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-light.svg?v=22" />
-  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-dark.svg?v=22" width="100%" alt="Monthly contribution activity for the last 13 months, 2451 contributions total. Busiest month Nov 2026 with 821." />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-dark.svg?v=23" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-light.svg?v=23" />
+  <img src="https://raw.githubusercontent.com/rai-pramana/rai-pramana/main/assets/momentum-dark.svg?v=23" width="100%" alt="Monthly contribution activity for the last 13 months, 2474 contributions total. Busiest month Nov 2026 with 844." />
 </picture></p>
 
 </div>
